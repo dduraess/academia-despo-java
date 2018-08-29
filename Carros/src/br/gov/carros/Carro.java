@@ -22,7 +22,7 @@ public class Carro {
 	}
 	
 	void imprimir() {
-		System.out.println("O carro"+ nome + "está a velocidade de " + getVelocidade() + "km/h");
+		System.out.println("O carro"+ nome + "esta a velocidade de " + getVelocidade() + "km/h");
 	}
 
 }
