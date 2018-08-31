@@ -7,6 +7,7 @@ String tipoReceita;
 PeriodoApuracao periodoApuracao; 
 Data vencimento;
 Pagamento Pagamento;
+double saldo;
 
 2 metodos
 
