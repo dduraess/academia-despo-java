@@ -6,7 +6,7 @@ Débito
 String tipoReceita;
 PeriodoApuracao periodoApuracao; 
 Data vencimento;
-long nrPagamento;
+Pagamento Pagamento;
 
 2 metodos
 
@@ -14,4 +14,4 @@ double calcularValor(String tipoReceita, PeriodoApuracao periodoApuracao, Data v
 
 String buscarSituacaoAtual(Debito debito) {
 
-long selecionarPagamento(Debito debito) {
+Pagamento selecionarPagamento(Debito debito) {
