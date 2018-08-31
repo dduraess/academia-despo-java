@@ -6,7 +6,7 @@ Débito
 String tipoReceita;
 PeriodoApuracao periodoApuracao; 
 Data vencimento;
-Pagamento Pagamento;
+Pagamento pagamento;
 double saldo;
 
 2 metodos
