@@ -1,6 +1,13 @@
 package br.gov.carros;
 
 public class Carro {
+	
+	public Carro(int potencia) {
+		super();
+		this.potencia = potencia;
+		this.velocidade = 0;
+	}
+
 	int potencia;
 	int velocidade;
 	String nome;
