@@ -14,4 +14,4 @@ double calcularValor(String tipoReceita, PeriodoApuracao periodoApuracao, Data v
 
 String buscarSituacaoAtual(Debito debito) {
 
-Pagamento selecionarPagamento(Debito debito) {
+long selecionarPagamento(Debito debito) {
