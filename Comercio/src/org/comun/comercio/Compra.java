@@ -1,4 +1,4 @@
-package br.org.comercio;
+package org.comun.comercio;
 
 public class Compra {
 	
