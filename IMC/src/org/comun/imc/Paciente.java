@@ -2,11 +2,13 @@ package org.comun.imc;
 
 public class Paciente {
 	
+	String nome;
 	double peso;
 	double altura;
 	
-	public Paciente(double peso, double altura) {
+	public Paciente(String nome, double peso, double altura) {
 		super();
+		this.nome = nome;
 		this.peso = peso;
 		this.altura = altura;
 	}
