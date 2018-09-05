@@ -34,7 +34,7 @@ public class Paciente {
 		double faixa7Inf = 35;
 		double faixa7Sup = 39.99;
 		
-		if (valorIMC <= faixa1) {
+		if (valorIMC < faixa1) {
 			seuDiagnostico = "Baixo peso muito grave";
 		} else if (valorIMC >= faixa1 && valorIMC <= faixa2Sup) {
 			seuDiagnostico = "Baixo peso grave";
