@@ -20,31 +20,31 @@ public class Paciente {
 		double valorIMC = this.calcularIMC(peso, altura);
 		String seuDiagnostico;
 		double faixa1 = 16;
-		double faixa2 = 16.99;
-		double faixa3 = 17;
-		double faixa4 = 18.49;
-		double faixa5 = 18.50;
-		double faixa6 = 24.99;
-		double faixa7 = 25;
-		double faixa8 = 29.99;
-		double faixa9 = 30;
-		double faixa10 = 34.99;
-		double faixa11 = 35;
-		double faixa12 = 39.99;
+		double faixa2Sup = 16.99;
+		double faixa3Inf = 17;
+		double faixa3Sup = 18.49;
+		double faixa4Inf = 18.50;
+		double faixa4Sup = 24.99;
+		double faixa5Inf = 25;
+		double faixa5Sup = 29.99;
+		double faixa6Inf = 30;
+		double faixa6Sup = 34.99;
+		double faixa7Inf = 35;
+		double faixa7Sup = 39.99;
 		
-		if (valorIMC < faixa1) {
+		if (valorIMC <= faixa1) {
 			seuDiagnostico = "Baixo peso muito grave";
-		} else if (valorIMC >= faixa1 && valorIMC <= faixa2) {
+		} else if (valorIMC >= faixa1 && valorIMC <= faixa2Sup) {
 			seuDiagnostico = "Baixo peso grave";
-		} else if (valorIMC >= faixa3 && valorIMC <= faixa4) {
+		} else if (valorIMC >= faixa3Inf && valorIMC <= faixa3Sup) {
 			seuDiagnostico = "Baixo peso";
-		} else if (valorIMC >= faixa5 && valorIMC <= faixa6) {
+		} else if (valorIMC >= faixa4Inf && valorIMC <= faixa4Sup) {
 			seuDiagnostico = "Peso normal";
-		} else if (valorIMC >= faixa7 && valorIMC <= faixa8) {
+		} else if (valorIMC >= faixa5Inf && valorIMC <= faixa5Sup) {
 			seuDiagnostico = "Sobrepeso";
-		} else if (valorIMC >= faixa9 && valorIMC <= faixa10) {
+		} else if (valorIMC >= faixa6Inf && valorIMC <= faixa6Sup) {
 			seuDiagnostico = "Obesidade grau I";
-		} else if (valorIMC >= faixa11 && valorIMC <= faixa12) {
+		} else if (valorIMC >= faixa7Inf && valorIMC <= faixa7Sup) {
 			seuDiagnostico = "Obesidade grau II";
 		} else {
 			seuDiagnostico = "Obesidade grau III";
