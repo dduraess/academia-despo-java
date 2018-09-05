@@ -2,24 +2,23 @@ package org.comun.imc;
 
 public class Paciente {
 	
-	String nome;
-	double peso;
-	double altura;
+	public String nome;
+	private double peso;
+	private double altura;
 	
 	public Paciente(String nome, double peso, double altura) {
-		super();
 		this.nome = nome;
 		this.peso = peso;
 		this.altura = altura;
 	}
 	
-	public double calcularIMC(double quilos, double metros) {
-		return quilos / (metros * metros);
+	private double calcularIMC() {
+		return peso / (altura * altura);
 	}
 	
 	public String diagnostico() {
 		
-		double valorIMC = this.calcularIMC(peso, altura);
+		double valorIMC = calcularIMC();
 		String seuDiagnostico;
 		double faixa1 = 16;
 		double faixa2Sup = 16.99;
