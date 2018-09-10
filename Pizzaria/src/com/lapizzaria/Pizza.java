@@ -20,19 +20,19 @@ public class Pizza {
 	public double getPreco() {
 		preco=15.50;
 		for (int i = 0; i < listaIngredientes.length; i++) {
-			if (listaIngredientes[i]=="" || listaIngredientes[i]==null) {
+			if (listaIngredientes[i].equals("") || listaIngredientes[i].equals(null)) {
 				preco+=0;
-			} else if (listaIngredientes[i]=="muzzarela") {
+			} else if (listaIngredientes[i].equals("muzzarela")) {
 				preco+=8.80;
-			} else if (listaIngredientes[i]=="bacon") {
+			} else if (listaIngredientes[i].equals("bacon")) {
 				preco+=15.75;
-			} else if (listaIngredientes[i]=="cebola") {
+			} else if (listaIngredientes[i].equals("cebola")) {
 				preco+=5.9;
-			} else if (listaIngredientes[i]=="aliche") {
+			} else if (listaIngredientes[i].equals("aliche")) {
 				preco+=12;
-			} else if (listaIngredientes[i]=="calabreza") {
+			} else if (listaIngredientes[i].equals("calabreza")) {
 				preco+=9.5;
-			} else if (listaIngredientes[i]=="atum") {
+			} else if (listaIngredientes[i].equals("atum")) {
 				preco+=10;
 			} 
 		}
