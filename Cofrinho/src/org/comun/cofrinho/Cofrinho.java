@@ -20,9 +20,14 @@ public class Cofrinho {
 	}
 	
 	public void contarMoedasPorValor (List<Moeda> moedas) {
+		int moedasDeCinco;
+		int moedasDeDez;
+		int moedasDeVinteCinco;
 		for (Iterator iterator = moedas.iterator(); iterator.hasNext();) {
 			Moeda moeda = (Moeda) iterator.next();
-			
+			if (moeda.valor==0.05) {
+				
+			}
 		}
 	}
 
