@@ -16,7 +16,7 @@ public class Calculador {
 		} 
 	}
 	
-	static double farenheit (double celsius) {
+	static double converterCelsiusParaFarenheit (double celsius) {
 		return celsius * 9 / 5 + 32;
 	}
 	
