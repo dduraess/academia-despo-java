@@ -6,7 +6,7 @@ nome pode ser mudado e deve-se mostrar os dados do material quando necessário. O
 estoque e montar uma lista de produtos em estoque.
 
 Almoxarifado
---> faz inventariar(Produto)
+--> faz inventariar(Lista produtos)
 --> faz retirarProduto(Produto)
 --> faz abastecer(Produto)
 
