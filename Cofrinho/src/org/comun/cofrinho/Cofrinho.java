@@ -64,6 +64,13 @@ public class Cofrinho {
 		}
 	}
 	
+	public Double contarValorTotalCofrinho () {
+		Double valorTotal=0.0;
+		for (Moeda moeda : moedasArmazenadas) {
+			valorTotal += moeda.valor; 
+		} return valorTotal;
+	}
+	
 	public void imprimirContabilidadeCofrinho () {
 		contarMoedasPorValor(moedasArmazenadas);
 		System.out.println("Moedas de cinco: " + moedasDeCinco);
@@ -72,6 +79,7 @@ public class Cofrinho {
 		System.out.println("Moedas de cinquenta: " + moedasDeCinquenta);
 		System.out.println("Moedas de um: " + moedasDeUm);
 		System.out.println("Total de moedas: " + contarMoedas(moedasArmazenadas));
+		System.out.println("Total do cofrinho: " + contarValorTotalCofrinho());
 		System.out.println("Moeda de maior valor: " + informarMoedaMaiorValor());
 	}
 
