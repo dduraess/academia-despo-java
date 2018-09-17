@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Cofrinho {
 
-	public List<Moeda> moedasArmazenadas = new ArrayList<>();
+	private List<Moeda> moedasArmazenadas = new ArrayList<>();
 
 	private int moedasDeCinco=0;
 	private int moedasDeDez=0;
