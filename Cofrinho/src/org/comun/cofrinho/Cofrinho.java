@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Cofrinho {
 
-	List<Moeda> moedasArmazenadas = new ArrayList<>();
+	public List<Moeda> moedasArmazenadas = new ArrayList<>();
 
 	private int moedasDeCinco=0;
 	private int moedasDeDez=0;
@@ -17,29 +17,29 @@ public class Cofrinho {
 		moedasArmazenadas.add(moeda);
 	}
 	
-	public int contarMoedas(List<Moeda> moedas){
+	public int contarMoedas(){
 		
 		int total=0;
 		
-		for (int i = 0; i < moedas.size(); i++) {
+		for (int i = 0; i < moedasArmazenadas.size(); i++) {
 			total++;
 		} return total;
 		
 	}
 	
-	public void contarMoedasPorValor (List<Moeda> moedas) {
+	public void contarMoedasPorValor () {
 
-		if (!moedas.isEmpty()) {
-			for (int i = 0; i < moedas.size(); i++) {
-				if (moedas.get(i).valor.equals(0.05)) {
+		if (!this.moedasArmazenadas.isEmpty()) {
+			for (int i = 0; i < moedasArmazenadas.size(); i++) {
+				if (moedasArmazenadas.get(i).valor.equals(0.05)) {
 					moedasDeCinco++;
-				} else if (moedas.get(i).valor.equals(0.1)) {
+				} else if (moedasArmazenadas.get(i).valor.equals(0.1)) {
 					moedasDeDez++;
-				} else if (moedas.get(i).valor.equals(0.25)) {
+				} else if (moedasArmazenadas.get(i).valor.equals(0.25)) {
 					moedasDeVinteCinco++;
-				} else if (moedas.get(i).valor.equals(0.5)) {
+				} else if (moedasArmazenadas.get(i).valor.equals(0.5)) {
 					moedasDeCinquenta++;
-				} else if (moedas.get(i).valor.equals(1.0)) {
+				} else if (moedasArmazenadas.get(i).valor.equals(1.0)) {
 					moedasDeUm++;
 				}
 			}
@@ -72,13 +72,13 @@ public class Cofrinho {
 	}
 	
 	public void imprimirContabilidadeCofrinho () {
-		contarMoedasPorValor(moedasArmazenadas);
+		contarMoedasPorValor();
 		System.out.println("Moedas de cinco: " + moedasDeCinco);
 		System.out.println("Moedas de dez: " + moedasDeDez);
 		System.out.println("Moedas de vinte e cinco: " + moedasDeVinteCinco);
 		System.out.println("Moedas de cinquenta: " + moedasDeCinquenta);
 		System.out.println("Moedas de um: " + moedasDeUm);
-		System.out.println("Total de moedas: " + contarMoedas(moedasArmazenadas));
+		System.out.println("Total de moedas: " + contarMoedas());
 		System.out.println("Total do cofrinho: " + contarValorTotalCofrinho());
 		System.out.println("Moeda de maior valor: " + informarMoedaMaiorValor());
 	}
