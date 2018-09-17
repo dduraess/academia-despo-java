@@ -26,7 +26,7 @@ public class Pedido {
 	
 	public void imprimePedido() {
 		for (int i = 0; i < listaItens.length; i++) {
-			System.out.println("Pizzas: " + listaItens[i].sabor + " - preço " + listaItens[i].getPreco());
+			System.out.println("Pizza sabor " + listaItens[i].sabor + " -> preço: " + listaItens[i].getPreco());
 		}
 		System.out.println("Valor da entrega: " + entrega.getPreco());
 		System.out.println("Valor total: " + calcularValor());

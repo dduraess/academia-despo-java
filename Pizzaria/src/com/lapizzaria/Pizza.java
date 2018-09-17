@@ -17,7 +17,7 @@ public class Pizza {
 		
 	}
 
-	public double getPreco() {
+	public Double getPreco() {
 		preco=15.50;
 		for (int i = 0; i < listaIngredientes.length; i++) {
 			if (listaIngredientes[i]==null || "".equals(listaIngredientes[i])) {
