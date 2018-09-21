@@ -16,7 +16,7 @@ public class AlmoxarifadoTest {
 	 */
 
 	@Test
-	public void qtdeMaterialEstocado() {
+	public void qtdeEstoqueVazio() {
 		
 //		dado que
 //		eu tenho um estoque vazio
@@ -24,11 +24,73 @@ public class AlmoxarifadoTest {
 		
 //		quando
 //		eu requisitar a qtde total de materiais deste estoque
-		int qtdeTotalDeMateriais = estoque.qtdeTotalDeMateriais();
+		int qtde = estoque.qtdeTotalDeMateriais();
 		
 //		entao
 //		a qtde de materiais estocados é zero
-		assertEquals(0, qtdeTotalDeMateriais);
+		assertEquals(0, (int) qtde);
+		
+	}
+
+	@Test
+	public void qtdeEstoqueComAbastecimento() {
+		
+//		dado que
+//		eu tenho um estoque vazio
+		Estoque estoque = new Estoque();
+		int cdNumerico = 1;
+		Material material = new Material(cdNumerico);
+		estoque.abastecer(material);
+		
+//		quando
+//		eu requisitar a qtde total de materiais deste estoque
+		int qtde = estoque.qtdeTotalDeMateriais();
+		
+//		entao
+//		verifica a qtde de materiais estocados 
+		assertEquals(1, (int) qtde);
+		
+	}
+
+	@Test
+	public void qtdeEstoqueAposRetirada() {
+		
+//		dado que
+//		eu tenho um estoque vazio
+		Estoque estoque = new Estoque();
+		int cdNumerico = 1;
+		Material material = new Material(cdNumerico);
+		estoque.abastecer(material);
+		estoque.retirar(material);
+		
+//		quando
+//		eu efetuar retirada
+		int qtde = estoque.qtdeTotalDeMateriais();
+		
+//		entao
+//		verifica a qtde de materiais estocados sem o material retirado
+		assertEquals(0, (int) qtde);
+		
+	}
+
+	@Test
+	public void qtdeEstoqueAposRetiradaSemMaterial() {
+		
+//		dado que
+//		eu tenho um estoque vazio
+		Estoque estoque = new Estoque();
+		Material material = new Material(1);
+		Material material2 = new Material(2);
+		estoque.abastecer(material);
+		
+//		quando
+//		eu efetuar retirada
+		int qtde = estoque.qtdeTotalDeMateriais();
+		estoque.retirar(material2);
+		
+//		entao
+//		verifica a qtde de materiais seja a mesma
+		assertEquals(1, (int) qtde);
 		
 	}
 
