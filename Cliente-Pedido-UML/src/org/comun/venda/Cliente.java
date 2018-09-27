@@ -32,7 +32,7 @@ public class Cliente {
 	* + getPrecoPelaQuantidade()
 	* + getPeso()
 	* }
-	* Pedido "1" --> "1..*" Pagamento :tem
+	* Pedido "1" --> "1..*" Pagamento :refere-se a
 	* Class Pagamento {
 	* - quantidade 
 	* }  
@@ -58,7 +58,8 @@ public class Cliente {
 	
 	private String nome;
 	private String endereco;
-	
-	
 
+
+	public Cliente() {
+	}
 }

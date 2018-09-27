@@ -21,13 +21,12 @@
  + calcPeso()
  } 
  Class Item {
- - peso
- - entrega
+ - pesoEntrega
  - descricao
  + getPrecoPelaQuantidade()
  + getPeso()
  }
- Pedido "1" --> "1..*" Pagamento :tem
+ Pedido "1" --> "1..*" Pagamento :refere-se a
  Class Pagamento {
  - quantidade 
  }  
