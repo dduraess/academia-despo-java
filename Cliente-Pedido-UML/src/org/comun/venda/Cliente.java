@@ -1,5 +1,7 @@
 package org.comun.venda;
 
+import java.util.List;
+
 public class Cliente {
 	
    /**
@@ -58,8 +60,13 @@ public class Cliente {
 	
 	private String nome;
 	private String endereco;
+	private List<Pedido> pedidos;
 
 
-	public Cliente() {
+	public Cliente(String nome, String endereco, List<Pedido> pedidos) {
+		this.nome = nome;
+		this.endereco = endereco;
+		this.pedidos = pedidos;
 	}
+
 }
