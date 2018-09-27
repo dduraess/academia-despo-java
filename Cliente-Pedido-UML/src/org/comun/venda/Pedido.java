@@ -20,15 +20,32 @@ public class Pedido {
 
 	public enum StatusPedido {
 		
-		ABERTO, PAGO, ENVIADO, RECEBIDO;
+		ABERTO, PAGO, ENVIADO, RECEBIDO
 		
 	}
 	
 	public Double calcTaxa() {
-		for (:
-			 ) {
-			
-		}
+		Double somaTaxa = 0.0;
+		Double valorImposto = 0.6;
+		for (DetalhePedido detalhePedido:detalhes) {
+			if (detalhePedido.getStatusImposto()== DetalhePedido.StatusImposto.POR_CONTA_COMPRADOR) {
+				somaTaxa += detalhePedido.calcSubTotal() * valorImposto;
+			} somaTaxa += 0.0;
+		} return somaTaxa;
+
 	}
-	
+
+    public Double calcTotalPeso() {
+        Double somaTotalPeso = 0.0;
+        for (DetalhePedido detalhePedido:detalhes) {
+            somaTotalPeso += detalhePedido.calcPeso();
+        } return somaTotalPeso;
+    }
+
+	public Double calcTotal() {
+	    Double somaTotal = 0.0;
+        for (DetalhePedido detalhePedido:detalhes) {
+            somaTotal += detalhePedido.calcSubTotal();
+        } return somaTotal + calcTaxa() + calcTotalPeso();
+    }
 }

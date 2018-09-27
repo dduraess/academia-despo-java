@@ -18,12 +18,16 @@ public class DetalhePedido {
         INCLUSO, POR_CONTA_COMPRADOR
     }
 
+    public StatusImposto getStatusImposto() {
+        return statusImposto;
+    }
+
     public Double calcPeso () {
         return item.getPeso() * valorEntregaPorPeso;
     }
 
     public Double calcSubTotal() {
-        return item.getPrecoPelaQuantidade(this.quantidade) + calcPeso();
+        return item.getPrecoPelaQuantidade(this.quantidade);
     }
 
 }
