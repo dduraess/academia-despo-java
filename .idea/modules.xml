@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Almoxarifado/Almoxarifado.iml" filepath="$PROJECT_DIR$/Almoxarifado/Almoxarifado.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Carros/Carros.iml" filepath="$PROJECT_DIR$/Carros/Carros.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Cliente-Pedido-UML/Cliente-Pedido-UML.iml" filepath="$PROJECT_DIR$/Cliente-Pedido-UML/Cliente-Pedido-UML.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Cofrinho/Cofrinho.iml" filepath="$PROJECT_DIR$/Cofrinho/Cofrinho.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Comercio/Comercio.iml" filepath="$PROJECT_DIR$/Comercio/Comercio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IMC/IMC.iml" filepath="$PROJECT_DIR$/IMC/IMC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MetodosEstaticos/MetodosEstaticos.iml" filepath="$PROJECT_DIR$/MetodosEstaticos/MetodosEstaticos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Pizzaria/Pizzaria.iml" filepath="$PROJECT_DIR$/Pizzaria/Pizzaria.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Estaticas/VariaveisEstaticas.iml" filepath="$PROJECT_DIR$/Estaticas/VariaveisEstaticas.iml" />
+    </modules>
+  </component>
+</project>
