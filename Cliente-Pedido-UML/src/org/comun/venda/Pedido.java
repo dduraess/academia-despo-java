@@ -18,7 +18,7 @@ public class Pedido {
 		this.pagamento = pagamento;
 	}
 
-	public enum StatusPedido {
+	public static enum StatusPedido {
 		
 		ABERTO, PAGO, ENVIADO, RECEBIDO
 		
