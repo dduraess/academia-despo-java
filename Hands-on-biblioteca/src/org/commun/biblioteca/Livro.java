@@ -7,7 +7,9 @@ public class Livro {
 	public Livro(String nome){
 		this.nome = nome;
 	}
+	
 	public void anexarUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
 }

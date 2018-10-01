@@ -42,5 +42,10 @@ public class BibliotecaTest {
 		biblioteca.adicionarLivroCatalogo(livro);
 		assertEquals(1, biblioteca.quantidadeLivrosCatalogados());
 	}
+	
+	@Test
+	public void desanexarLivro() {
+		
+	}
 
 }
