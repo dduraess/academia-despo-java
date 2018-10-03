@@ -1,6 +1,7 @@
 package org.commun.biblioteca.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.commun.biblioteca.Biblioteca;
 import org.commun.biblioteca.Livro;
@@ -44,8 +45,17 @@ public class BibliotecaTest {
 	}
 	
 	@Test
-	public void desanexarLivro() {
-		
+	public void verificarLivroNaoEmprestadoDisponivel() {
+		biblioteca.adicionarLivroCatalogo(livro);
+		assertTrue(livro.estaDisponivel());
+	}
+	
+	@Test
+	public void verificarLivroEmprestadoNaoDisponivel() {
+		biblioteca.adicionarLivroCatalogo(livro);
+		biblioteca.registrarUsuario(usuario);
+		biblioteca.emprestarLivro(livro, usuario);
+		assertTrue(!livro.estaDisponivel());
 	}
 
 }

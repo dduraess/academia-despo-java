@@ -16,19 +16,24 @@ public class Biblioteca {
 		this.usuariosRegistrados.add(usuario);
 		
 	}
+	
 	public int quantidadeUsuariosRegistrados() {
 		return this.usuariosRegistrados.size();
 	}
+	
 	public void adicionarLivroCatalogo(Livro livro) {
 		this.livrosCatalogados.add(livro);
 	}
+	
 	public int quantidadeLivrosCatalogados() {
 		return this.livrosCatalogados.size();
 	}
-	public void emprestarLivro(String nomeLivro,Usuario usuario) {
+	
+	public void emprestarLivro(Livro livroDesejado, Usuario usuario) {
 		for (Livro livro : livrosCatalogados) {
-			if (livro.nome == nomeLivro && livro.usuario != null) {
+			if (livro.nome.equals(livroDesejado.nome) && livro.estaDisponivel()) {
 				livro.anexarUsuario(usuario);
+				usuario.incluirLivroEmprestadoNaListaDoUsuario(livroDesejado);
 			} break;
 		}
 	}
