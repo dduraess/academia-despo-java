@@ -31,7 +31,7 @@ public class Biblioteca {
 	
 	public void emprestarLivro(Livro livroDesejado, Usuario usuario) {
 		for (Livro livro : livrosCatalogados) {
-			if (livro.nome.equals(livroDesejado.nome) && livro.estaDisponivel()) {
+			if (livro.getNome().equals(livroDesejado.getNome()) && livro.estaDisponivel()) {
 				livro.anexarUsuario(usuario);
 				usuario.incluirLivroEmprestadoNaListaDoUsuario(livroDesejado);
 			} break;

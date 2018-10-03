@@ -1,6 +1,16 @@
 package org.comun.venda;
 
-public class Pagamento {
-    int quantidade;
+public abstract class Pagamento {
+    private int quantidade;
 
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+	
+	public abstract String tipoPagto(); 
+    
 }

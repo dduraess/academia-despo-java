@@ -5,8 +5,12 @@ import java.util.Collection;
 
 public class Usuario {
 	
-	String nome;
-	Collection<Livro> livrosEmprestados = new ArrayList<>();
+	private String nome;
+	private Collection<Livro> livrosEmprestados = new ArrayList<>();
+
+	public String getNome() {
+		return nome;
+	}
 
 	public Usuario(String nome){
 		this.nome = nome;
