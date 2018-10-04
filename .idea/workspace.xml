@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbde54e1-a0c3-4bed-a512-b64291cc29e9" name="Default" comment="alterações na implementação do diagrama associções">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HandsOnBiblioteca/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HandsOnBiblioteca/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HandsOnBiblioteca/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HandsOnBiblioteca/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HandsOnBiblioteca/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HandsOnBiblioteca/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HandsOnBiblioteca/HandsOnBiblioteca.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Pedido-UML/Cliente-Pedido-UML.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Pedido-UML/Cliente-Pedido-UML.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliente-Pedido-UML/src/org/comun/venda/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Pedido-UML/src/org/comun/venda/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliente-Pedido-UML/test/org/comun/venda/test/PedidoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Pedido-UML/test/org/comun/venda/test/PedidoTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/Almoxarifado/bin/" />
     <ignored path="$PROJECT_DIR$/Carros/bin/" />
@@ -31,15 +24,15 @@
     <session id="2121212114">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.15" value="2" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -79,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/Cliente-Pedido-UML/src/org/comun/venda/Cliente.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1260">
-              <caret line="70" selection-start-line="70" selection-end-line="70" />
+              <caret line="71" selection-start-line="71" selection-end-line="71" />
             </state>
           </provider>
         </entry>
@@ -87,7 +80,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Cliente-Pedido-UML/src/org/comun/venda/Pedido.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="666">
+            <state relative-caret-position="648">
               <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -121,7 +114,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Cliente-Pedido-UML/src/org/comun/venda/DetalhePedido.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
+            <state relative-caret-position="432">
               <caret line="29" column="59" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
               <folding>
                 <element signature="e#547#548#0" expanded="true" />
@@ -155,7 +148,7 @@
         <entry file="file://$PROJECT_DIR$/Cliente-Pedido-UML/test/org/comun/venda/test/PedidoTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="18" column="71" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
+              <caret line="19" column="71" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -226,23 +219,6 @@
             <path>
               <item name="academia-despo-trilha-java" type="b2602c69:ProjectViewProjectNode" />
               <item name="Cliente-Pedido-UML" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="academia-despo-trilha-java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cliente-Pedido-UML" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="venda" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="academia-despo-trilha-java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cliente-Pedido-UML" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="academia-despo-trilha-java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cliente-Pedido-UML" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -373,9 +349,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-4" width="1600" height="904" extended-state="6" />
+    <frame x="-1" y="-11" width="1602" height="912" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26640928" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27027026" />
       <window_info id="Structure" order="1" weight="0.24967825" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
@@ -446,13 +422,13 @@
     <entry file="file://$PROJECT_DIR$/Cliente-Pedido-UML/src/org/comun/venda/Cliente.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1260">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Cliente-Pedido-UML/src/org/comun/venda/Pedido.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
+        <state relative-caret-position="648">
           <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -469,7 +445,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Cliente-Pedido-UML/src/org/comun/venda/DetalhePedido.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
+        <state relative-caret-position="432">
           <caret line="29" column="59" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
           <folding>
             <element signature="e#547#548#0" expanded="true" />
@@ -497,7 +473,7 @@
     <entry file="file://$PROJECT_DIR$/Cliente-Pedido-UML/test/org/comun/venda/test/PedidoTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="18" column="71" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
+          <caret line="19" column="71" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
         </state>
       </provider>
     </entry>

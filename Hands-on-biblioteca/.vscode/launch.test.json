@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "Hands-on-biblioteca",
+                "projectName": "Hands-on-biblioteca",
+                "workingDirectory": "/home/27352403809/git/academia-despo-trilha-java/workspace/academia-despo-trilha-java/Hands-on-biblioteca",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "Hands-on-biblioteca",
+                "projectName": "Hands-on-biblioteca",
+                "workingDirectory": "/home/27352403809/git/academia-despo-trilha-java/workspace/academia-despo-trilha-java/Hands-on-biblioteca",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}

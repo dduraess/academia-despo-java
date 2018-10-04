@@ -1,0 +1,72 @@
+package org.commun.decorator {
+package core {
+abstract class DecoratorDeFiguras {
+# figuraDecorada : Figura
++ DecoradorDeFiguras(figura: Figura)
+}
+package decorators {
+class DecoradorDeFigurasPreenchimento {
+# cor : Cor
++ DecoradorDeFigurasPreenchimento(Figura, Cor)
+}
+class DecoradorDeFigurasLinha {
+# linha : Linha
++ DecoradorDeFigurasLinha(Figura, Cor)
+}
+package features {
+enum Cor {
+VERMELHO,
+VERDE,
+AZUL,
+AMARELO,
+BRANCO,
+PRETO,
+LARANJA,
+MARROM
+}
+enum Linha {
+SOLIDO,
+TRACEJADO,
+PONTILHADO,
+TRACEJADO_DUPLO,
+TRACEJADO_ESPACO
+}
+}
+Cor o-- DecoradorDeFigurasPreenchimento
+Linha o-- DecoradorDeFigurasLinha
+DecoratorDeFiguras <|-- DecoradorDeFigurasPreenchimento
+DecoratorDeFiguras <|-- DecoradorDeFigurasLinha
+}
+}
+package figuras {
+interface Figura {
++ calcularArea() : double
++ calcularPerimetro() : double
++ descricao() : String
+}
+package impl {
+class Circulo
+class Elipse
+abstract class Quadrilatero
+class Retangulo
+class Quadrado
+class Trapezio
+abstract class Triangulo
+class TrianguloRetangulo
+class TrianguloIsosceles
+Figura <|-- Circulo
+Figura <|-- Quadrilatero
+Figura <|-- Triangulo
+Circulo <|-- Elipse
+Quadrilatero <|-- Retangulo
+Quadrilatero <|-- Trapezio
+Retangulo <|-- Quadrado
+Triangulo <|-- TrianguloRetangulo
+Triangulo <|-- TrianguloIsosceles
+}
+}
+DecoratorDeFiguras o-- Figura
+DecoratorDeFiguras <|-- Figura
+DecoradorDeFigurasPreenchimento o-- Figura
+DecoradorDeFigurasLinha o-- Figura
+}
