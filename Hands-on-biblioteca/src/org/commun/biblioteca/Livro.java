@@ -3,27 +3,33 @@ package org.commun.biblioteca;
 public class Livro {
 	
 	private String nome;
-	private String usuarioAtual;
+	private String nomeUsuarioAtual;
 	
 	public String getNome() {
 		return nome;
 	}
 
 	public String getUsuarioAtual() {
-		return usuarioAtual;
+		return nomeUsuarioAtual;
 	}
 
 	public Livro(String nome){
 		this.nome = nome;
-		this.usuarioAtual = "";
+		this.nomeUsuarioAtual = "";
 	}
 	
 	public void anexarUsuario(Usuario usuario) {
-		usuarioAtual = usuario.getNome();
+		nomeUsuarioAtual = usuario.getNome();
+	}
+	
+	public void desanexarUsuario(Usuario usuario) {
+		if (!estaDisponivel() && usuario.getNome().equals(nomeUsuarioAtual)) {
+			nomeUsuarioAtual = "";
+		}
 	}
 	
 	public boolean estaDisponivel() {
-		if (usuarioAtual.equals("")) {
+		if ("".equals(this.getUsuarioAtual())) {
 			return true;			
 		} return false;
 	}

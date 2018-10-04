@@ -31,11 +31,39 @@ public class Biblioteca {
 	
 	public void emprestarLivro(Livro livroDesejado, Usuario usuario) {
 		for (Livro livro : livrosCatalogados) {
-			if (livro.getNome().equals(livroDesejado.getNome()) && livro.estaDisponivel()) {
+			if (livroDesejado.getNome().equals(livro.getNome()) && livro.estaDisponivel()) {
 				livro.anexarUsuario(usuario);
 				usuario.incluirLivroEmprestadoNaListaDoUsuario(livroDesejado);
-			} break;
+			} 
 		}
+	}
+	
+	public void devolverLivro(Livro livroEntregue, Usuario usuario) {
+		for (Livro livro : livrosCatalogados) {
+			if (livroEntregue.getNome().equals(livro.getNome()) && livro.getUsuarioAtual().equals(usuario.getNome())) {
+				livro.desanexarUsuario(usuario);
+			} 
+		}
+	}
+	
+	public String listaLivrosDisponiveis() {
+		String listaLivrosDisponiveis = "Lista de livros disponíveis: \n";
+		for (Livro livro : livrosCatalogados) {
+			if (livro.estaDisponivel()) {
+				listaLivrosDisponiveis += livro.getNome() + "\n";
+			} 
+		}
+		return listaLivrosDisponiveis;
+	}
+	
+	public String listaLivrosEmprestados() {
+		String listaLivrosEmprestados = "Lista de livros emprestados: \n";
+		for (Livro livro : livrosCatalogados) {
+			if (!livro.estaDisponivel()) {
+				listaLivrosEmprestados += livro.getNome() + " emprestado para " + livro.getUsuarioAtual() + "\n";
+			} 
+		}
+		return listaLivrosEmprestados;
 	}
 
 }
