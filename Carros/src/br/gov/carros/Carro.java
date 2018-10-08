@@ -1,35 +1,34 @@
 package br.gov.carros;
 
 public class Carro {
-	
-	public Carro(int potencia) {
+
+	private int potencia;
+	private int velocidade;
+	private int velocidadeMaxima;
+	private String nome;
+
+	public Carro(String nome, int potencia, int velocidadeMaxima) {
 		super();
+		this.nome = nome;
 		this.potencia = potencia;
+		this.velocidadeMaxima = velocidadeMaxima;
 		this.velocidade = 0;
 	}
-
-	int potencia;
-	int velocidade;
-	String nome;
 	
-	void acelerar() {
+	public void acelerar() {
 		velocidade += potencia;
 	}
 	
-	void frear() {
+	public void frear() {
 		velocidade = velocidade/2;
 	}
 	
-	int getVelocidade() {
+	public int getVelocidade() {
 		return velocidade;
 	}
 	
-	String getNome() {
+	public String getNome() {
 		return nome;
-	}
-	
-	void imprimir() {
-		System.out.println("O carro"+ nome + "esta a velocidade de " + getVelocidade() + "km/h");
 	}
 
 }
