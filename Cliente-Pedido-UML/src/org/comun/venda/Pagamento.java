@@ -3,8 +3,8 @@ package org.comun.venda;
 public abstract class Pagamento {
     private int quantidade;
     
-    public Pagamento (int qtde) {
-    	this.setQuantidade(qtde);
+    public Pagamento () {
+//    	this.setQuantidade(qtde);
     }
 
 	public final int getQuantidade() {

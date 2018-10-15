@@ -4,8 +4,7 @@ public class Dinheiro extends Pagamento {
 	
 	private double dinheiroOferecido;
 
-	public Dinheiro(double dinheiroOferecido, int qtde) {
-		super(qtde);
+	public Dinheiro(double dinheiroOferecido) {
 		this.dinheiroOferecido = dinheiroOferecido;
 	}
 
