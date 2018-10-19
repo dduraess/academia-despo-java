@@ -1,33 +1,61 @@
 package br.serpro.tv;
 
+import java.util.List;
+
 public class TV {
 	
-	private int canalAtivo = 0;
-	private int nrPossivelCanais;
+	private Integer CanalAtivo = 0;
+	private List<Integer> listaCanais;
 	private byte volume = 0;
 	private boolean estaLigada = false;
-	
-	public TV (int nrCanais) {
-		if (nrCanais>0) {
-			nrPossivelCanais = nrCanais;
-		}
+
+	public TV (List<Integer> listaCanais) {
+		this.listaCanais = listaCanais;
 	}
 	
-	public void mudarCanalNr(int nrCanal) {
-		if (nrCanal > 0 && nrCanal <= nrPossivelCanais) {
-			canalAtivo = nrCanal;
-		}
+	public Integer mudarCanalNr(Integer nrCanal) {
+		for (Integer integer : listaCanais) {
+			if (nrCanal.equals(listaCanais.get(integer))) {
+				return CanalAtivo;
+			}
+		} return CanalAtivo;
+		
 	}
-	
-	public void aumentarCanal() {
-		if (canalAtivo++ < nrPossivelCanais) {
-			canalAtivo++;
-		}
+
+	public int aumentarCanal() {
+//		if (listaCanais[canalAtivo] <= nrPossivelCanais) {
+//			canalAtivo = listaCanais[canalAtivo];
+//		}
+		return CanalAtivo;
 	}
-	
+
+	public int diminuirCanal() {
+//		if (listaCanais[CanalAtivo] > 0) {
+//			CanalAtivo = listaCanais[CanalAtivo-1];
+//		}
+		return CanalAtivo;
+	}
+
+	public int aumentarVolume() {
+		int volumeAtual = this.volume;
+		if (volumeAtual++ <= 50) {
+			volume++;
+		}
+		return volume;
+	}
+
+	public int diminuirVolume() {
+		int volumeAtual = this.volume;
+		if (volumeAtual-- > 0) {
+			volume--;
+		}
+		return volume;
+	}
+
 	public void ligaDesliga() {
 		estaLigada=!estaLigada;
 	}
+
 	
 
 }
