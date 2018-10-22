@@ -14,7 +14,7 @@ public class LancamentoCobrancaTest {
 
 	@Before
 	public void iniciar() {
-		debito = new DebitoDeclarado();
+//		debito = new DebitoDeclarado();
 	}
 	
 	@Test
