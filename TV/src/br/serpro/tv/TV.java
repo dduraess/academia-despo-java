@@ -1,65 +1,58 @@
 package br.serpro.tv;
 
+import java.util.List;
+
 public class TV {
 	
-	private int canalAtivo;
-	private int nrPossivelCanais;
-	private int listaCanais[];
-	private byte volume;
-	private boolean estaLigada;
+	private Integer indiceCanalAtivo = 0;
+	private List<Integer> listaCanais;
+	private byte volume = 0;
+	private boolean estaLigada = false;
+
+	public TV (List<Integer> listaCanais) {
+		this.listaCanais = listaCanais;
+	}
 	
-	public TV (int nrCanais) {
-		if (nrCanais>0) {
-			nrPossivelCanais = nrCanais;
-			int contadorVetor = 1;
-			for (int i = 0; i < nrPossivelCanais; i++) {
-				listaCanais[i] = contadorVetor;
-				contadorVetor++;
+	public Integer mudarCanalNr(Integer nrCanal) {
+		for (Integer integer : listaCanais) {
+			if (nrCanal.equals(listaCanais.get(integer))) {
+				return indiceCanalAtivo;
 			}
-		}
-		canalAtivo = 0;
-		volume = 0;
-		estaLigada = false;
+		} return indiceCanalAtivo;
+		
 	}
-	
-	public int mudarCanalNr(int nrCanal) {
-		if (nrCanal > 0 && nrCanal <= nrPossivelCanais) {
-			canalAtivo = listaCanais[nrCanal-1];
-		}
-		return canalAtivo;
-	}
-	
+
 	public int aumentarCanal() {
-		if (listaCanais[canalAtivo] <= nrPossivelCanais) {
-			canalAtivo = listaCanais[canalAtivo];
-		}
-		return canalAtivo;
+		return 0; //listaCanais.;
 	}
-	
+
 	public int diminuirCanal() {
-		if (listaCanais[canalAtivo-2] > 0) {
-			canalAtivo = listaCanais[canalAtivo-2];
-		}
-		return canalAtivo;
+//		if (listaCanais[CanalAtivo] > 0) {
+//			CanalAtivo = listaCanais[CanalAtivo-1];
+//		}
+		return indiceCanalAtivo;
 	}
-	
+
 	public int aumentarVolume() {
-		volumeAtual = ;
-		if (volume++ <= 50) {
+		int volumeAtual = this.volume;
+		if (volumeAtual++ <= 50) {
 			volume++;
 		}
 		return volume;
 	}
-	
+
 	public int diminuirVolume() {
-		if (volume-- > 0) {
+		int volumeAtual = this.volume;
+		if (volumeAtual-- > 0) {
 			volume--;
 		}
 		return volume;
 	}
-	
+
 	public void ligaDesliga() {
 		estaLigada=!estaLigada;
 	}
+
+	
 
 }
