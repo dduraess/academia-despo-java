@@ -23,7 +23,7 @@ public class TV {
 	}
 
 	public int aumentarCanal() {
-		return listaCanais.get(indiceCanalAtivo);
+		return 0; //listaCanais.;
 	}
 
 	public int diminuirCanal() {
