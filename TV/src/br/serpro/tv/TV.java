@@ -4,7 +4,7 @@ import java.util.List;
 
 public class TV {
 	
-	private Integer CanalAtivo = 0;
+	private Integer indiceCanalAtivo = 0;
 	private List<Integer> listaCanais;
 	private byte volume = 0;
 	private boolean estaLigada = false;
@@ -16,24 +16,21 @@ public class TV {
 	public Integer mudarCanalNr(Integer nrCanal) {
 		for (Integer integer : listaCanais) {
 			if (nrCanal.equals(listaCanais.get(integer))) {
-				return CanalAtivo;
+				return indiceCanalAtivo;
 			}
-		} return CanalAtivo;
+		} return indiceCanalAtivo;
 		
 	}
 
 	public int aumentarCanal() {
-//		if (listaCanais[canalAtivo] <= nrPossivelCanais) {
-//			canalAtivo = listaCanais[canalAtivo];
-//		}
-		return CanalAtivo;
+		return listaCanais.get(indiceCanalAtivo);
 	}
 
 	public int diminuirCanal() {
 //		if (listaCanais[CanalAtivo] > 0) {
 //			CanalAtivo = listaCanais[CanalAtivo-1];
 //		}
-		return CanalAtivo;
+		return indiceCanalAtivo;
 	}
 
 	public int aumentarVolume() {
