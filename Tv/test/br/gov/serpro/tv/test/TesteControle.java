@@ -28,33 +28,48 @@ public class TesteControle {
 	@Test
 	public void mudarCanalPeloNr() {
 		assertTrue(controle.powerPressed());
-		assertEquals(controle.informarCanal(35), (Integer)35);
+		assertEquals(controle.informarNrMedia(35), (Integer)35);
 	}
 
 	@Test
 	public void mudarCanalParaNrCanalInexistente() {
 		assertTrue(controle.powerPressed());
-		assertNotEquals(controle.informarCanal(29), (Integer)29);
+		assertNotEquals(controle.informarNrMedia(29), (Integer)29);
 	}
 
 	@Test
 	public void aumentarCanal() {
 		assertTrue(controle.powerPressed());
-		assertEquals(controle.informarCanal(28), (Integer)28);
+		assertEquals(controle.informarNrMedia(28), (Integer)28);
 		assertEquals(controle.plusChPressed(), (Integer)32);
 	}
 
 	@Test
 	public void diminuirCanal() {
 		assertTrue(controle.powerPressed());
-		assertEquals(controle.informarCanal(28), (Integer)28);
+		assertEquals(controle.informarNrMedia(28), (Integer)28);
 		assertEquals(controle.lessChPressed(), (Integer)12);
 	}
 
-//	@Test
-//	public void diminuirCanal() {
-//		assertEquals(controle.informarCanal(28), (Integer)28);
-//		assertEquals(controle.lessChPressed(), (Integer)12);
-//	}
+	@Test
+	public void aumentarVolume() {
+		assertTrue(controle.powerPressed());
+		for (int i = 1; i <= 50; i++) {
+			assertEquals(controle.plusVlPressed(), (Integer)i);
+		}
+		assertEquals(controle.plusVlPressed(), (Integer)50);
+	}
+
+	@Test
+	public void diminuirVolume() {
+		assertTrue(controle.powerPressed());
+		for (int i = 0; i <= 50; i++) {
+			controle.lessVlPressed();
+		}
+		for (int i = 51; i <= 0; i--) {
+			assertEquals(controle.lessVlPressed(), (Integer)i);
+		}
+		assertEquals(controle.lessVlPressed(), (Integer)0);
+	}
 
 }

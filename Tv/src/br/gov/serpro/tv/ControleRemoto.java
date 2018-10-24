@@ -2,39 +2,34 @@ package br.gov.serpro.tv;
 
 public class ControleRemoto {
 	
-	private TV tvControlada;
+	private Controlavel dispositivoControlavel;
 	
-	public ControleRemoto (TV tv) {
-		this.tvControlada = tv;
+	public ControleRemoto (Controlavel meuDispositivo) {
+		this.dispositivoControlavel = meuDispositivo;
 	}
 	
-	public Integer informarCanal(Integer nrCanal) {
-		tvControlada.mudarCanalNr(nrCanal);
-		return tvControlada.getCanalAtivo();
+	public Integer informarNrMedia(Integer nrMedia) {
+		return dispositivoControlavel.irParaMediaNr(nrMedia);
 	}
 	
 	public boolean powerPressed() {
-		return tvControlada.ligaDesliga();
+		return dispositivoControlavel.ligaDesliga();
 	}
 	
 	public Integer plusChPressed() {
-		tvControlada.aumentarCanal();
-		return tvControlada.getCanalAtivo();
+		return dispositivoControlavel.irParaProximaMedia();
 	}
 	
 	public Integer lessChPressed() {
-		tvControlada.diminuirCanal();
-		return tvControlada.getCanalAtivo();
+		return dispositivoControlavel.irParaMediaAnterior();
 	}
 	
 	public Integer plusVlPressed() {
-		tvControlada.aumentarVolume();
-		return tvControlada.getVolume();
+		return dispositivoControlavel.aumentarSom();
 	}
 	
 	public Integer lessVlPressed() {
-		tvControlada.diminuirVolume();
-		return tvControlada.getVolume();
+		return dispositivoControlavel.diminuirSom();
 	}
 
 }

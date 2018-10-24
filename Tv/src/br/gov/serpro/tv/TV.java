@@ -2,7 +2,7 @@ package br.gov.serpro.tv;
 
 import java.util.List;
 
-public class TV {
+public class TV implements Controlavel {
 	
 	private Integer canalAtivo = 0;
 	private List<Integer> listaCanais;
@@ -42,19 +42,19 @@ public class TV {
 
 	public void aumentarVolume() {
 		int volumeAtual = this.volume;
-		if (volumeAtual++ <= 50) {
+		if (volumeAtual + 1 <= 50) {
 			volume++;
 		}
 	}
 
 	public void diminuirVolume() {
 		int volumeAtual = this.volume;
-		if (volumeAtual-- > 0) {
+		if (volumeAtual - 1 > 0) {
 			volume--;
 		}
 	}
 
-	public boolean ligaDesliga() {
+	public boolean ligaDesligaTV() {
 		estaLigada=!estaLigada;
 		return estaLigada;
 	}
@@ -65,6 +65,41 @@ public class TV {
 
 	public Integer getVolume() {
 		return volume;
+	}
+
+	@Override
+	public Boolean ligaDesliga() {
+		return ligaDesligaTV();
+	}
+
+	@Override
+	public Integer irParaProximaMedia() {
+		aumentarCanal();
+		return getCanalAtivo();
+	}
+
+	@Override
+	public Integer irParaMediaAnterior() {
+		diminuirCanal();
+		return getCanalAtivo();
+	}
+
+	@Override
+	public Integer irParaMediaNr(Integer nrMedia) {
+		mudarCanalNr(nrMedia);
+		return getCanalAtivo();
+	}
+
+	@Override
+	public Integer aumentarSom() {
+		this.aumentarVolume();
+		return getVolume();
+	}
+
+	@Override
+	public Integer diminuirSom() {
+		this.diminuirVolume();
+		return getVolume();
 	}
 
 }
