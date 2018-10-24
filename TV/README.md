@@ -22,68 +22,18 @@ Tem que verificar:
 
 COLOCAR NO GIT!
 
-package br.serpro.tv;
+Exercício 1)
 
-public class TV {
-	
-	private int canalAtivo;
-	private int nrPossivelCanais;
-	private int listaCanais[];
-	private byte volume;
-	private boolean estaLigada;
-	
-	public TV (int nrCanais) {
-		if (nrCanais>0) {
-			nrPossivelCanais = nrCanais;
-			int contadorVetor = 1;
-			for (int i = 0; i < nrPossivelCanais; i++) {
-				listaCanais[i] = contadorVetor;
-				contadorVetor++;
-			}
-		}
-		canalAtivo = 0;
-		volume = 0;
-		estaLigada = false;
-	}
-	
-	public int mudarCanalNr(int nrCanal) {
-		if (nrCanal > 0 && nrCanal <= nrPossivelCanais) {
-			canalAtivo = listaCanais[nrCanal-1];
-		}
-		return canalAtivo;
-	}
-	
-	public int aumentarCanal() {
-		if (listaCanais[canalAtivo] <= nrPossivelCanais) {
-			canalAtivo = listaCanais[canalAtivo];
-		}
-		return canalAtivo;
-	}
-	
-	public int diminuirCanal() {
-		if (listaCanais[canalAtivo-2] > 0) {
-			canalAtivo = listaCanais[canalAtivo-2];
-		}
-		return canalAtivo;
-	}
-	
-	public int aumentarVolume() {
-		volumeAtual = ;
-		if (volume++ <= 50) {
-			volume++;
-		}
-		return volume;
-	}
-	
-	public int diminuirVolume() {
-		if (volume-- > 0) {
-			volume--;
-		}
-		return volume;
-	}
-	
-	public void ligaDesliga() {
-		estaLigada=!estaLigada;
-	}
+Evolução do nosso exercício da TV.
 
-}
+
+Controle até agora recebia uma TV. Agora Controle recebe uma interface chamada Controlavel.
+
+A sua TV implementará uma interface controlavel
+Um Tablet que poderá ser controlado por controle remoto implementará Controlavel
+Um Som que poderá ser controlado por controle remoto implementará Controlavel
+Um Porta Retrato Digital com música que poderá ser controlado por controle remoto implementará Controlavel
+
+Exercício 2)
+
+Implement uma lista de Jogadores de futebol e usando a ordenação do JAVA e a interface Comparable ordene essa lista pelos jogadores que fizeram mais gols em 2018. 
