@@ -1,6 +1,9 @@
 package br.gov.serpro.ranking.test;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -12,6 +15,7 @@ import br.gov.serpro.ranking.Jogador;
 public class RankingTest {
 	
 	private List<Jogador> jogadores;
+	private List<Jogador> gabaritoRanking;
 	private Jogador neimar;
 	private Jogador messy;
 	private Jogador ronaldo;
@@ -37,14 +41,14 @@ public class RankingTest {
 		jogadores.add(pele);
 		jogadores.add(tostao);
 		jogadores.add(garrincha);
+		
+		gabaritoRanking = Arrays.asList(pele, garrincha, ronaldo, tostao, messy, neimar);
 	}
 
 	@Test
 	public void test() {
 		Collections.sort(jogadores, Collections.reverseOrder());
-		for (Jogador jogador : jogadores) {
-			System.out.println("Nome: " + jogador.getNome() + "\nNr de gols: " + jogador.getNrGols() + "\n");
-		}
+		assertEquals(gabaritoRanking, jogadores);
 	}
 
 }
