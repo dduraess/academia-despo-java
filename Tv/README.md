@@ -33,7 +33,3 @@ A sua TV implementará uma interface controlavel
 Um Tablet que poderá ser controlado por controle remoto implementará Controlavel
 Um Som que poderá ser controlado por controle remoto implementará Controlavel
 Um Porta Retrato Digital com música que poderá ser controlado por controle remoto implementará Controlavel
-
-Exercício 2)
-
-Implement uma lista de Jogadores de futebol e usando a ordenação do JAVA e a interface Comparable ordene essa lista pelos jogadores que fizeram mais gols em 2018. 
