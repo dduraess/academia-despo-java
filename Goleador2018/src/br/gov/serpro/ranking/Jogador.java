@@ -15,12 +15,12 @@ public class Jogador implements Comparable<Jogador> {
 
 	@Override
 	public int compareTo(Jogador o) {
-		if (nrGols == o.nrGols) {
-			return 0;
+		if (nrGols > o.nrGols) {
+			return 1;
 		} 
 		if (nrGols < o.nrGols) {
 			return -1;
-		} return 1;
+		} return 0;
 	}
 
 	public String getNome() {
