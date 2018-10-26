@@ -1,7 +1,5 @@
 package br.gov.serpro.ranking;
 
-import java.util.Collection;
-
 public class Jogador implements Comparable<Jogador> {
 	
 	private String nome;
