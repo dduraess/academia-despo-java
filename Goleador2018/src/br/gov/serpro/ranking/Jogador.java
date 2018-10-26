@@ -6,7 +6,6 @@ public class Jogador implements Comparable<Jogador> {
 	private Integer nrGols;
 	
 	public Jogador(String nome, Integer nrGols) {
-		super();
 		this.nome = nome;
 		this.nrGols = nrGols;
 	}
