@@ -3,10 +3,12 @@ package br.gov.serpro.conta;
 public class ContaCorrentePremium extends ContaCorrente {
 	
 	private Double saldo = 0.0; 
+	private static final Double REMUNERACAO = 1.06;
+	private static final Double TAXA_DE_JUROS = 1.0;
 
 	@Override
 	public void depositar(Double valor) {
-		saldo = saldo + valor * 1.06;
+		saldo = saldo + valor * REMUNERACAO;
 	}
 
 	@Override
@@ -16,7 +18,7 @@ public class ContaCorrentePremium extends ContaCorrente {
 
 	@Override
 	public Double calcularTaxaJuros() {
-		return 1.0;
+		return TAXA_DE_JUROS;
 	}
 
 }
