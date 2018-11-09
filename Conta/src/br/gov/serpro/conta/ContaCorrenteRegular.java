@@ -1,7 +1,5 @@
 package br.gov.serpro.conta;
 
-import br.gov.serpro.conta.test.SaldoInsuficienteException;
-
 public class ContaCorrenteRegular extends ContaCorrente {
 	
 	private Double saldo = 0.0;

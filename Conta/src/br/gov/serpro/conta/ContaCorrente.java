@@ -1,7 +1,5 @@
 package br.gov.serpro.conta;
 
-import br.gov.serpro.conta.test.SaldoInsuficienteException;
-
 public abstract class ContaCorrente {
 	
 	public abstract void depositar(Double valor);

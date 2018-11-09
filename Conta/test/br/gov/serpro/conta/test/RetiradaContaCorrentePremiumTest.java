@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import br.gov.serpro.conta.ContaCorrente;
 import br.gov.serpro.conta.ContaCorrentePremium;
+import br.gov.serpro.conta.SaldoInsuficienteException;
 
 public class RetiradaContaCorrentePremiumTest {
 

@@ -1,4 +1,4 @@
-package br.gov.serpro.conta.test;
+package br.gov.serpro.conta;
 
 public class SaldoInsuficienteException extends Exception {
 	/**
