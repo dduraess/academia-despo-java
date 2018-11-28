@@ -1,11 +1,13 @@
-package br.gov.serpro.lancamento;
+package br.gov.serpro.lancamento.test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
-import br.gov.serpro.lancamento.test.Contribuinte;
+import br.gov.serpro.lancamento.Contribuinte;
+import br.gov.serpro.lancamento.PessoaFisica;
+import br.gov.serpro.lancamento.PessoaJuridica;
 
 public class CalculoContribuinte {
 
@@ -20,7 +22,7 @@ public class CalculoContribuinte {
 		listaConstribuintes.add(new PessoaJuridica("Supermercados B",2000000.00,"10066"));
 		listaConstribuintes.add(new PessoaFisica("Carla Maia",1500.00,"33333"));
 		listaConstribuintes.add(new PessoaJuridica("Posto XX",500000.00,"10077"));
-		listaConstribuintes.add(new PessoaFisica("José da Silva",95000.00,"97687"));
+		listaConstribuintes.add(new PessoaFisica("Jose da Silva",95000.00,"97687"));
 		
 		
 		for (Contribuinte contribuinte : listaConstribuintes) {

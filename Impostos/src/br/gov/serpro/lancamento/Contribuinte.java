@@ -1,4 +1,4 @@
-package br.gov.serpro.lancamento.test;
+package br.gov.serpro.lancamento;
 
 public abstract class Contribuinte {
 	

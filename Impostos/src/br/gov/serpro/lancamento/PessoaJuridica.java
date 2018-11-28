@@ -1,7 +1,5 @@
 package br.gov.serpro.lancamento;
 
-import br.gov.serpro.lancamento.test.Contribuinte;
-
 public class PessoaJuridica extends Contribuinte {
 	
 	private String cnpj;
