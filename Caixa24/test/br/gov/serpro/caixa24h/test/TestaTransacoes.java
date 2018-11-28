@@ -12,11 +12,14 @@ public class TestaTransacoes {
 
 	@Before
 	public void inicializa() {
-		List<Correntista> usuarios
+		List<Correntista> usuarios;
+		bancoAlfa = new Banco(usuarios);
+		caixa24h = new Caixa24h(bancoAlfa);
 	}
 
 	@Test
 	public void consultarExtrato () {
+		
 	}
 
 }
