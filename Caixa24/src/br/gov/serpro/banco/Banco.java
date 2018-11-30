@@ -1,6 +1,8 @@
-package br.gov.serpro.caixa24h;
+package br.gov.serpro.banco;
 
 import java.util.List;
+
+import br.gov.serpro.caixa24h.BancoOperavel;
 
 public class Banco implements BancoOperavel {
 
@@ -39,18 +41,24 @@ public class Banco implements BancoOperavel {
 	@Override
 	public void realizarTransferencia(String nrContaOrigem, String nrContaDestino, Double valor)
 			throws ContaInexistenteException, SaldoInsuficienteException {
-//		for (Conta conta : contas) {
-//			if (nrContaOrigem.equals(conta.obterNrConta())) {
-//				operacaoValidada = true;
-//				try {
-//					conta(valor);
-//				} catch (SaldoInsuficienteException e) {
-//					e.printStackTrace();
-//				}
-//			}  
-//		} if (!operacaoValidada) {
-//			throw new ContaInexistenteException("Conta inexistente!");
-//		}
+		
+		for (Conta conta : contas) {
+			if (nrContaOrigem.equals(conta.obterNrConta())) {
+				try {
+					conta.enviarTransferencia(nrContaDestino, valor);
+					for (Conta contaDestino : contas) {
+						if (nrContaDestino.equals(contaDestino.obterNrConta())) {
+							operacaoValidada = true;
+							contaDestino.receberTransferencia(nrContaOrigem, valor);
+						}
+					}
+				} catch (SaldoInsuficienteException e) {
+					e.printStackTrace();
+				}
+			}  
+		} if (!operacaoValidada) {
+			throw new ContaInexistenteException("Conta inexistente!");
+		}
 		
 	}
 

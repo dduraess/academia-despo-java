@@ -1,5 +1,8 @@
 package br.gov.serpro.caixa24h;
 
+import br.gov.serpro.banco.ContaInexistenteException;
+import br.gov.serpro.banco.SaldoInsuficienteException;
+
 public interface BancoOperavel {
 	
 	public String consultarExtrato(String nrConta) throws ContaInexistenteException;	

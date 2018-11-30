@@ -1,4 +1,4 @@
-package br.gov.serpro.caixa24h;
+package br.gov.serpro.banco;
 
 public class SaldoInsuficienteException extends Exception {
 	/**
