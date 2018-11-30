@@ -63,18 +63,20 @@ public class Conta {
 		saldo = saldo + valor;
 	}
 	
-	public void enviarTransferencia(Double valor) {
+	public void enviarTransferencia(Double valor) throws SaldoInsuficienteException {
 		if (valor <= obterSaldo()) {
 			Historico historico = new Historico(obterSaldo(), "Débito transferência", valor);
 			operacoes.add(historico);
 			saldo = saldo - valor;
-		} 
+		} else {
+			throw new SaldoInsuficienteException("Saldo insuficiente");
+		}
 	}
 	
 	public String extrato(){
 		String extratoConsolidado = "";
 		for (Historico historico : operacoes) {
-			extratoConsolidado.concat(historico.dataOperacao.toString() + "; " + historico.operacao + ": " + historico.valor.toString() + "; Saldo anterior: " + historico.saldoAnterior.toString() + "\n");
+			extratoConsolidado = extratoConsolidado.concat(historico.dataOperacao.toString() + "; " + historico.operacao + ": " + historico.valor.toString() + "; Saldo anterior: " + historico.saldoAnterior.toString() + "\n");
 		}
 		return extratoConsolidado;
 	}

@@ -18,7 +18,7 @@ public class Caixa24h {
 		return bancoDaOperacao.consultarSaldo(contaUsuario);
 	}
 	
-	public void realizarTransferenciaCaixa24h(String nrContaDestino, Double valor) throws ContaInexistenteException {
+	public void realizarTransferenciaCaixa24h(String nrContaDestino, Double valor) throws ContaInexistenteException, SaldoInsuficienteException {
 		bancoDaOperacao.realizarTransferencia(contaUsuario, nrContaDestino, valor);
 	}
 	

@@ -1,6 +1,7 @@
 package br.gov.serpro.caixa24h.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,43 +35,49 @@ public class TestaTransacoes {
 	@Test
 	public void testarConsultarExtrato () {
 		
-	}
-
-	@Test
-	public void testarConsultarSaldo () {
-	}
-
-	@Test
-	public void testarRealizarTransferencia() {
-	}
-
-	@Test
-	public void testarRealizarDeposito () {
+		caixa24h = new Caixa24h(bancoAlfa, "3456-3");
+		
+		try {
+			caixa24h.realizarSaqueCaixa24h(600.00);
+		} catch (ContaInexistenteException | SaldoInsuficienteException e) {
+			e.printStackTrace();
+		} 
+		
+		try {
+			assertNotEquals("", caixa24h.consultarExtratoCaixa24h());
+		} catch (ContaInexistenteException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
+//	@Test
+//	public void testarConsultarSaldo () {
+//	}
+//
+//	@Test
+//	public void testarRealizarTransferencia() {
+//	}
+//
+//	@Test
+//	public void testarRealizarDeposito () {
+//		
+//	}
+
 	@Test
 	public void testarSaque () {
+		
 		caixa24h = new Caixa24h(bancoAlfa, "3456-3");
+		
 		try {
 			caixa24h.realizarSaqueCaixa24h(600.00);
-		} catch (ContaInexistenteException e) {
-			// TODO Auto-generated catch block
+		} catch (ContaInexistenteException | SaldoInsuficienteException e) {
 			e.printStackTrace();
-		} catch (SaldoInsuficienteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} 
+		
 		try {
 			assertEquals(8050.00, caixa24h.consultarSaldoCaixa24h(), 0.00);
 		} catch (ContaInexistenteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			System.out.println(caixa24h.consultarExtratoCaixa24h());
-		} catch (ContaInexistenteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
