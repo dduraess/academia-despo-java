@@ -11,6 +11,8 @@ import org.junit.Test;
 import br.gov.serpro.caixa24h.Banco;
 import br.gov.serpro.caixa24h.Caixa24h;
 import br.gov.serpro.caixa24h.Conta;
+import br.gov.serpro.caixa24h.ContaInexistenteException;
+import br.gov.serpro.caixa24h.SaldoInsuficienteException;
 
 public class TestaTransacoes {
 	
@@ -50,8 +52,27 @@ public class TestaTransacoes {
 	@Test
 	public void testarSaque () {
 		caixa24h = new Caixa24h(bancoAlfa, "3456-3");
-		caixa24h.realizarSaqueCaixa24h(600.00);
-		assertEquals(8050.00, caixa24h.consultarSaldoCaixa24h(), 0.00);
+		try {
+			caixa24h.realizarSaqueCaixa24h(600.00);
+		} catch (ContaInexistenteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SaldoInsuficienteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			assertEquals(8050.00, caixa24h.consultarSaldoCaixa24h(), 0.00);
+		} catch (ContaInexistenteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			System.out.println(caixa24h.consultarExtratoCaixa24h());
+		} catch (ContaInexistenteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

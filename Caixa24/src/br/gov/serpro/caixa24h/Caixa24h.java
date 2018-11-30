@@ -10,23 +10,23 @@ public class Caixa24h {
 		this.contaUsuario = nrConta;
 	}
 	
-	public String consultarExtratoCaixa24h() {
+	public String consultarExtratoCaixa24h() throws ContaInexistenteException {
 		return bancoDaOperacao.consultarExtrato(contaUsuario);
 	}
 	
-	public Double consultarSaldoCaixa24h() {
+	public Double consultarSaldoCaixa24h() throws ContaInexistenteException {
 		return bancoDaOperacao.consultarSaldo(contaUsuario);
 	}
 	
-	public void realizarTransferenciaCaixa24h(String nrContaDestino, Double valor) {
+	public void realizarTransferenciaCaixa24h(String nrContaDestino, Double valor) throws ContaInexistenteException {
 		bancoDaOperacao.realizarTransferencia(contaUsuario, nrContaDestino, valor);
 	}
 	
-	public void realizarDepositoCaixa24h(Double valor) {
+	public void realizarDepositoCaixa24h(Double valor) throws ContaInexistenteException {
 		bancoDaOperacao.realizarDeposito(contaUsuario, valor);
 	}
 	
-	public void realizarSaqueCaixa24h(Double valor) {
+	public void realizarSaqueCaixa24h(Double valor) throws ContaInexistenteException, SaldoInsuficienteException {
 		bancoDaOperacao.saque(contaUsuario, valor);
 	}
 

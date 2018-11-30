@@ -1,5 +1,6 @@
 package br.gov.serpro.caixa24h;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +22,13 @@ public class Conta {
 		private Double saldoAnterior;
 		private String operacao;
 		private Double valor;
+		private LocalDateTime dataOperacao;
 		
 		public Historico(Double saldoAnterior, String operacao, Double valor) {
 			this.saldoAnterior = saldoAnterior;
 			this.operacao = operacao;
 			this.valor = valor;
+			this.dataOperacao = LocalDateTime.now();
 		}
 		
 	}
@@ -44,13 +47,14 @@ public class Conta {
 		saldo = saldo + valor;
 	}
 	
-	public void saque(Double valor) {
+	public void saque(Double valor) throws SaldoInsuficienteException {
 		if (valor <= obterSaldo()) {
 			Historico historico = new Historico(obterSaldo(), "Saque", valor);
 			operacoes.add(historico);
 			saldo = saldo - valor;
+		} else {
+			throw new SaldoInsuficienteException("Saldo insuficiente!");
 		} 
-		
 	}
 	
 	public void receberTransferencia(Double valor) {
@@ -70,7 +74,7 @@ public class Conta {
 	public String extrato(){
 		String extratoConsolidado = "";
 		for (Historico historico : operacoes) {
-			extratoConsolidado = extratoConsolidado + historico.operacao + ": " + historico.valor.toString() + "; Saldo anterior: " + historico.saldoAnterior.toString() + "\n";
+			extratoConsolidado.concat(historico.dataOperacao.toString() + "; " + historico.operacao + ": " + historico.valor.toString() + "; Saldo anterior: " + historico.saldoAnterior.toString() + "\n");
 		}
 		return extratoConsolidado;
 	}
