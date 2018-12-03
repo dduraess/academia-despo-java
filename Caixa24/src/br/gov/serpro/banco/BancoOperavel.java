@@ -1,7 +1,4 @@
-package br.gov.serpro.caixa24h;
-
-import br.gov.serpro.banco.ContaInexistenteException;
-import br.gov.serpro.banco.SaldoInsuficienteException;
+package br.gov.serpro.banco;
 
 public interface BancoOperavel {
 	
@@ -9,6 +6,7 @@ public interface BancoOperavel {
 	public Double consultarSaldo(String nrConta) throws ContaInexistenteException;	
 	public void realizarTransferencia(String nrContaOrigem, String nrContaDestino, Double valor) throws ContaInexistenteException, SaldoInsuficienteException;	
 	public void realizarDeposito(String nrConta, Double valor) throws ContaInexistenteException;	
-	public void saque(String nrConta, Double valor) throws ContaInexistenteException, SaldoInsuficienteException;	
+	public void saque(String nrConta, Double valor) throws ContaInexistenteException, SaldoInsuficienteException;
+//	public validaConta ()
 
 }

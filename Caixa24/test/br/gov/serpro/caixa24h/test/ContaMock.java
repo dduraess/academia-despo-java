@@ -1,23 +1,27 @@
-package br.gov.serpro.banco;
+package br.gov.serpro.caixa24h.test;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Conta {
+import br.gov.serpro.banco.SaldoInsuficienteException;
+
+public class ContaMock {
 	
 	private String nome;
 	private Double saldo;
 	private String nrConta;
 	private List<Historico> operacoes = new ArrayList<>();
 	
-	public Conta(String nome, Double saldo, String nrConta) {
+	public ContaMock(String nome, Double saldo, String nrConta) {
 		this.nome = nome;
 		this.saldo = saldo;
 		this.nrConta = nrConta;
 	}
 	
 	public class Historico {
+		
+		//** TODO Jogar essa classe para fora e mudar nome diferente de historico*//
 		
 		private Double saldoAnterior;
 		private String operacao;

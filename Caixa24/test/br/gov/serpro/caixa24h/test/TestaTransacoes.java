@@ -9,26 +9,26 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.gov.serpro.banco.Banco;
-import br.gov.serpro.banco.Conta;
 import br.gov.serpro.banco.ContaInexistenteException;
 import br.gov.serpro.banco.SaldoInsuficienteException;
 import br.gov.serpro.caixa24h.Caixa24h;
 
 public class TestaTransacoes {
 	
-	private Banco bancoAlfa;
+	//* TODO testar apenas a criação dos objetos e é possivel chamar o banco sem erro **//
+	
+	private BancoMock bancoAlfa;
 	private Caixa24h caixa24h;
 
 	@Before
 	public void inicializa() {
-		List<Conta> usuarios = new ArrayList<>();
-		usuarios.add(new Conta("Joao Santos",4300.00,"1234-1"));
-		usuarios.add(new Conta("Antonio Braga",5400.00,"2345-2"));
-		usuarios.add(new Conta("Arlindo Cruz",8650.00,"3456-3"));
-		usuarios.add(new Conta("Joelma Trali",1300.00,"4567-4"));
-		usuarios.add(new Conta("Jacob Goldberg",40350.00,"5678-5"));
-		bancoAlfa = new Banco(usuarios);
+		List<ContaMock> usuarios = new ArrayList<>();
+		usuarios.add(new ContaMock("Joao Santos",4300.00,"1234-1"));
+		usuarios.add(new ContaMock("Antonio Braga",5400.00,"2345-2"));
+		usuarios.add(new ContaMock("Arlindo Cruz",8650.00,"3456-3"));
+		usuarios.add(new ContaMock("Joelma Trali",1300.00,"4567-4"));
+		usuarios.add(new ContaMock("Jacob Goldberg",40350.00,"5678-5"));
+		bancoAlfa = new BancoMock(usuarios);
 		
 	}
 

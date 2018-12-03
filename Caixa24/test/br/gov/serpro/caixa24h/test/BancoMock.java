@@ -1,15 +1,17 @@
-package br.gov.serpro.banco;
+package br.gov.serpro.caixa24h.test;
 
 import java.util.List;
 
-import br.gov.serpro.caixa24h.BancoOperavel;
+import br.gov.serpro.banco.BancoOperavel;
+import br.gov.serpro.banco.ContaInexistenteException;
+import br.gov.serpro.banco.SaldoInsuficienteException;
 
-public class Banco implements BancoOperavel {
+public class BancoMock implements BancoOperavel {
 
-	private List<Conta> contas;
+	private List<ContaMock> contas;
 	private Boolean operacaoValidada;
 
-	public Banco(List<Conta> contas) {
+	public BancoMock(List<ContaMock> contas) {
 		this.contas = contas;
 		this.operacaoValidada = false;
 	}
@@ -17,7 +19,7 @@ public class Banco implements BancoOperavel {
 	@Override
 	public String consultarExtrato(String nrConta) throws ContaInexistenteException {
 		String historico = "";
-		for (Conta conta : contas) {
+		for (ContaMock conta : contas) {
 			if (nrConta.equals(conta.obterNrConta())) {
 				return historico.concat(conta.extrato());
 			} 
@@ -28,7 +30,7 @@ public class Banco implements BancoOperavel {
 
 	@Override
 	public Double consultarSaldo(String nrConta) throws ContaInexistenteException {
-		for (Conta conta : contas) {
+		for (ContaMock conta : contas) {
 			if (nrConta.equals(conta.obterNrConta())) {
 				operacaoValidada = true;
 				return conta.obterSaldo();
@@ -42,11 +44,11 @@ public class Banco implements BancoOperavel {
 	public void realizarTransferencia(String nrContaOrigem, String nrContaDestino, Double valor)
 			throws ContaInexistenteException, SaldoInsuficienteException {
 		
-		for (Conta conta : contas) {
+		for (ContaMock conta : contas) {
 			if (nrContaOrigem.equals(conta.obterNrConta())) {
 				try {
 					conta.enviarTransferencia(nrContaDestino, valor);
-					for (Conta contaDestino : contas) {
+					for (ContaMock contaDestino : contas) {
 						if (nrContaDestino.equals(contaDestino.obterNrConta())) {
 							operacaoValidada = true;
 							contaDestino.receberTransferencia(nrContaOrigem, valor);
@@ -69,7 +71,7 @@ public class Banco implements BancoOperavel {
 
 	@Override
 	public void saque(String nrConta, Double valor) throws ContaInexistenteException {
-		for (Conta conta : contas) {
+		for (ContaMock conta : contas) {
 			if (nrConta.equals(conta.obterNrConta())) {
 				try {
 					conta.saque(valor);
