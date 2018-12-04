@@ -1,36 +1,41 @@
 package br.gov.serpro.caixa24h;
 
-import br.gov.serpro.banco.ContaInexistenteException;
+import java.math.BigDecimal;
+import java.util.List;
+
+import br.gov.serpro.banco.BancoOperavel;
 import br.gov.serpro.banco.SaldoInsuficienteException;
+import br.gov.serpro.banco.Usuario;
+import br.gov.serpro.caixa24h.test.Operacao;
 
 public class Caixa24h {
 	
-	private BancoOperavel bancoDaOperacao;
-	private String contaUsuario;
+	private BancoOperavel bancoOperacao;
+	private Usuario usuario;
 
-	public Caixa24h(BancoOperavel bancoDaOperacao, String nrConta) {
-		this.bancoDaOperacao = bancoDaOperacao;
-		this.contaUsuario = nrConta;
+	public Caixa24h(BancoOperavel bancoOperacao, Usuario usuario) {
+		this.bancoOperacao = bancoOperacao;
+		this.usuario = usuario;
 	}
 	
-	public String consultarExtratoCaixa24h() throws ContaInexistenteException {
-		return bancoDaOperacao.consultarExtrato(contaUsuario);
+	public List<Operacao> consultarExtrato() {
+		return bancoOperacao.consultarExtrato(usuario);
 	}
 	
-	public Double consultarSaldoCaixa24h() throws ContaInexistenteException {
-		return bancoDaOperacao.consultarSaldo(contaUsuario);
+	public BigDecimal consultarSaldo() {
+		return bancoOperacao.consultarSaldo(usuario);
 	}
 	
-	public void realizarTransferenciaCaixa24h(String nrContaDestino, Double valor) throws ContaInexistenteException, SaldoInsuficienteException {
-		bancoDaOperacao.realizarTransferencia(contaUsuario, nrContaDestino, valor);
+	public void realizarTransferencia(String nrContaDestino, BigDecimal valor) throws SaldoInsuficienteException {
+		bancoOperacao.realizarTransferencia(usuario, nrContaDestino, valor);
 	}
 	
-	public void realizarDepositoCaixa24h(Double valor) throws ContaInexistenteException {
-		bancoDaOperacao.realizarDeposito(contaUsuario, valor);
+	public void realizarDeposito(BigDecimal valor) {
+		bancoOperacao.realizarDeposito(usuario, valor);
 	}
 	
-	public void realizarSaqueCaixa24h(Double valor) throws ContaInexistenteException, SaldoInsuficienteException {
-		bancoDaOperacao.saque(contaUsuario, valor);
+	public void realizarSaque(BigDecimal valor) throws SaldoInsuficienteException {
+		bancoOperacao.saque(usuario, valor);
 	}
 
 }

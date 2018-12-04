@@ -1,12 +1,17 @@
 package br.gov.serpro.banco;
 
+import java.math.BigDecimal;
+import java.util.List;
+
+import br.gov.serpro.caixa24h.test.Operacao;
+
 public interface BancoOperavel {
 	
-	public String consultarExtrato(String nrConta) throws ContaInexistenteException;	
-	public Double consultarSaldo(String nrConta) throws ContaInexistenteException;	
-	public void realizarTransferencia(String nrContaOrigem, String nrContaDestino, Double valor) throws ContaInexistenteException, SaldoInsuficienteException;	
-	public void realizarDeposito(String nrConta, Double valor) throws ContaInexistenteException;	
-	public void saque(String nrConta, Double valor) throws ContaInexistenteException, SaldoInsuficienteException;
-//	public validaConta ()
+	public List<Operacao> consultarExtrato(Usuario usuario);	
+	public BigDecimal consultarSaldo(Usuario usuario);	
+	public void realizarTransferencia(Usuario usuario, String nrContaDestino, BigDecimal valor) throws SaldoInsuficienteException;	
+	public void realizarDeposito(Usuario usuario, BigDecimal valor);	
+	public void saque(Usuario usuario, BigDecimal valor) throws SaldoInsuficienteException;
+	public void validarOperacao(Usuario usuario) throws OperacaoNaoValidadaException;
 
 }
