@@ -15,9 +15,9 @@ public abstract class Extrato {
 		this.dataFimPeriodo = dataFimPeriodo;
 	}
 
-	public abstract void adicionarTransacaoExtrato(TransacaoExtrato transacaoExtrato);
+	public abstract void adicionarTransacaoExtrato(Transacionavel transacaoExtrato);
 	
-	public abstract List<TransacaoExtrato> listaTransacoesExtrato();
+	public abstract List<Transacionavel> listaTransacoes();
 	
 	public LocalDate getDataInicioPeriodo() {
 		return dataInicioPeriodo;

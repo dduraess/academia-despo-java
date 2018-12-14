@@ -1,22 +1,24 @@
 package br.gov.serpro.caixa24h;
 
 import java.math.BigDecimal;
+import java.util.List;
 
-import br.gov.serpro.banco24h.Banco24H;
+import br.gov.serpro.banco24h.BancoOperavel;
 import br.gov.serpro.banco24h.ContaInexistenteException;
-import br.gov.serpro.banco24h.Extrato;
+import br.gov.serpro.banco24h.Operacao;
+import br.gov.serpro.banco24h.OperacaoRestritaException;
 import br.gov.serpro.banco24h.ValorExcedeLimiteException;
 
 public class Caixa24H {
 
-	private Banco24H banco;
+	private BancoOperavel banco;
 	private Integer numeroConta;
 
-	public Caixa24H(Banco24H banco, Integer numeroConta) throws ContaInexistenteException {
+	public Caixa24H(BancoOperavel banco, Integer numeroConta) throws ContaInexistenteException {
 		conectarComBanco(banco, numeroConta);
 	}
 
-	public void conectarComBanco(Banco24H banco, Integer numeroConta) throws ContaInexistenteException {
+	public void conectarComBanco(BancoOperavel banco, Integer numeroConta) throws ContaInexistenteException {
 		if (banco == null) {
 			throw new IllegalArgumentException("Banco invalido para caixa 24h.");
 		}
@@ -32,7 +34,7 @@ public class Caixa24H {
 	 * 
 	 * @return Extrato da conta.
 	 */
-	public Extrato obterExtrato() {
+	public List<Operacao> obterExtrato() {
 		return banco.obterExtrato(numeroConta);
 	}
 
@@ -42,7 +44,7 @@ public class Caixa24H {
 	 * @return Valor do saldo disponível.
 	 */
 	public BigDecimal obterSaldo() {
-		return banco.obterSaldo(numeroConta);
+		return banco.obterSaldo();
 	}
 
 	/**
@@ -51,16 +53,17 @@ public class Caixa24H {
 	 * @param valor              Valor a ser transferido.
 	 * @param numeroContaDestino Conta a receber o valor.
 	 */
-	public void realizarTransferencia(BigDecimal valor, Integer numeroContaDestino) throws ValorExcedeLimiteException {
-		banco.realizarTransferencia(valor, numeroConta, numeroContaDestino);
+	public void realizarTransferencia(BigDecimal valor, Integer numeroContaDestino) throws ValorExcedeLimiteException, OperacaoRestritaException {
+			banco.realizarTransferencia(valor, numeroConta, numeroContaDestino);
 	}
 
 	/**
 	 * Deposita um valor na conta corrente.
 	 * 
 	 * @param valorDeposito Valor a ser depositado.
+	 * @throws OperacaoRestritaException 
 	 */
-	public void realizarDeposito(BigDecimal valorDeposito) {
+	public void realizarDeposito(BigDecimal valorDeposito) throws OperacaoRestritaException {
 		banco.realizarDeposito(valorDeposito, numeroConta);
 	}
 
@@ -68,12 +71,12 @@ public class Caixa24H {
 	 * Efetua saque do valor desejado, incluindo limite.
 	 * 
 	 * @param valorSaque Valor a ser sacado, incluindo limite, se existir.
-	 * @return Novo saldo da conta.
+	 * return Novo saldo da conta. Alterei para void, porque não vou usar esse saldo em lugar nenhum.
 	 * @throws ValorExcedeLimiteException se valor desejado ultrapassa limite
 	 *                                    disponível
 	 */
-	public BigDecimal sacar(BigDecimal valorSaque) throws ValorExcedeLimiteException {
-		return banco.sacar(valorSaque, numeroConta);
+	public void sacar(BigDecimal valorSaque) throws ValorExcedeLimiteException, OperacaoRestritaException {
+		banco.sacar(valorSaque, numeroConta);
 	}
 
 }
