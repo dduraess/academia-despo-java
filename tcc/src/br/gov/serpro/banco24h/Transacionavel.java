@@ -34,5 +34,5 @@ public interface Transacionavel {
 	 * Obtém texto adicional opcional da transação.
 	 * @return Detalhamento opcional da transação. 
 	 */
-	String getDetalhes();
+	String[] getDetalhes();
 }

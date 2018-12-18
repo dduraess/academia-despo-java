@@ -1,11 +1,13 @@
 package br.gov.serpro;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Before;
@@ -51,6 +53,14 @@ public class BancoAlfaCaixa24hTest {
 			e.printStackTrace();
 		}
 		
+		try {
+			caixa24h = new Caixa24H(bancoAlfa, 12341);
+		} catch (ContaInexistenteException e) {
+			e.printStackTrace();
+		}
+		
+		assertEquals(BigDecimal.valueOf(7343.94), caixa24h.obterSaldo());
+		
 	}
 	
 	@Test 
@@ -72,6 +82,14 @@ public class BancoAlfaCaixa24hTest {
 		} catch (ValorExcedeLimiteException | OperacaoRestritaException e) {
 			e.printStackTrace();
 		}
+		
+		try {
+			caixa24h = new Caixa24H(bancoAlfa, 12341);
+		} catch (ContaInexistenteException e) {
+			e.printStackTrace();
+		}
+		
+		assertEquals(BigDecimal.valueOf(7343.94), caixa24h.obterSaldo());
 		
 	}
 	
@@ -125,6 +143,14 @@ public class BancoAlfaCaixa24hTest {
 			e.printStackTrace();
 		}
 		
+		try {
+			caixa24h = new Caixa24H(bancoAlfa, 23452);
+		} catch (ContaInexistenteException e) {
+			e.printStackTrace();
+		}
+		
+		assertTrue(caixa24h.obterSaldo().compareTo(BigDecimal.valueOf(15306.14))==0);
+		
 	}
 	
 	@Test 
@@ -165,13 +191,19 @@ public class BancoAlfaCaixa24hTest {
 	
 	@Test
 	public void consultaExtrato() {
-		
-		/**
-		 * Os asserts estão comentados pq, por algum motivo as listas não batem, apesar de bater na impressão. 
-		 * Talvez seja porque não deu tempo de ordenar as listas.
-		 */
-		
+
 		List<Operacao> gabaritoListaOperacoes = new ArrayList<>();
+
+		Operacao transferencia = new Operacao(BigDecimal.valueOf(8462.20), "Transferência", BigDecimal.valueOf(500.00));
+		Operacao saque = new Operacao(BigDecimal.valueOf(7962.20), "Saque", BigDecimal.valueOf(500.00));
+		Operacao novaTransferencia = new Operacao(BigDecimal.valueOf(7462.20), "Transferência",
+				BigDecimal.valueOf(500.00));
+
+		gabaritoListaOperacoes.add(transferencia);
+		gabaritoListaOperacoes.add(saque);
+		gabaritoListaOperacoes.add(novaTransferencia);
+
+		Collections.sort(gabaritoListaOperacoes);
 		
 		try {
 			caixa24h = new Caixa24H(bancoAlfa, 23452);
@@ -181,37 +213,24 @@ public class BancoAlfaCaixa24hTest {
 		
 		try {
 			
-			Operacao transferencia = new Operacao(BigDecimal.valueOf(8462.20), "Transferência", BigDecimal.valueOf(500.00));
-			Operacao saque = new Operacao(BigDecimal.valueOf(7962.20), "Saque", BigDecimal.valueOf(500.00));
-			Operacao novaTransferencia = new Operacao(BigDecimal.valueOf(7462.20), "Transferência", BigDecimal.valueOf(500.00));
-			
-			gabaritoListaOperacoes.add(transferencia);
-			gabaritoListaOperacoes.add(saque);
-			gabaritoListaOperacoes.add(novaTransferencia);
-			
-//			for (Operacao operacao : gabaritoListaOperacoes) {
-//				System.out.println(operacao.getDetalhes() + "\n");
-//			}
-			
 			caixa24h.realizarTransferencia(BigDecimal.valueOf(500.00), 12341);
 			caixa24h.sacar(BigDecimal.valueOf(500.00));
 			caixa24h.realizarTransferencia(BigDecimal.valueOf(500.00), 12341);
-			
-//			for (Operacao operacao : caixa24h.obterExtrato()) {
-//				System.out.println(operacao.getDetalhes() + "\n");
-//			}
+
+			List<Operacao> operacoesExecutadas = new ArrayList<>();
+			operacoesExecutadas = caixa24h.obterExtrato();
+
+			Collections.sort(operacoesExecutadas);
+
+			for (Operacao operacao : gabaritoListaOperacoes) {
+				assertArrayEquals(operacao.getDetalhes(), operacoesExecutadas.get(gabaritoListaOperacoes.indexOf(operacao)).getDetalhes());
+			}
 			
 		} catch (OperacaoRestritaException e) {
 			e.printStackTrace();
 		} catch (ValorExcedeLimiteException e) {
 			e.printStackTrace();
 		}
-		
-//		for (Operacao operacao : gabaritoListaOperacoes) {
-//			int index = 0;
-//			assertTrue(operacao.getDetalhes().compareTo(caixa24h.obterExtrato().get(index).getDetalhes())==0);
-//			index++;
-//		}
 		
 	}
 	

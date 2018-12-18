@@ -3,7 +3,7 @@ package br.gov.serpro.banco24h;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class Operacao implements Transacionavel {
+public class Operacao implements Transacionavel, Comparable<Operacao> {
 	
 	private BigDecimal saldoAnterior;
 	private String descricao;
@@ -38,12 +38,28 @@ public class Operacao implements Transacionavel {
 	}
 
 	@Override
-	public String getDetalhes() {
-		return "".concat(saldoAnterior.toString() + descricao + valor.toString() + dataOperacao.toLocalDate().toString());
+	public String[] getDetalhes() {
+		String[] detalhes = new String[3];
+		detalhes[0] = saldoAnterior.toString();
+		detalhes[1] = descricao;
+		detalhes[2] = dataOperacao.toLocalDate().toString();
+		return detalhes;
 	}
 
 	public BigDecimal getSaldoAnterior() {
 		return saldoAnterior;
+	}
+
+	@Override
+	public int compareTo(Operacao o) {
+		if (dataOperacao.isBefore(o.dataOperacao)) {
+			return -1;
+		} else if (dataOperacao.isAfter(o.dataOperacao)) {
+			return 1;
+		} else {
+			return 0;
+		}
+		
 	} 
 
 }
